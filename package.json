@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "start": "npx parcel serve app/index.html",
-    "build": "npx parcel build app/index.html"
+    "build": "npx parcel build app/index.html",
+    "lint": "xo --fix --prettier"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.0.0-rc.0",
-    "parcel": "^2.0.0-rc.0"
+    "parcel": "^2.0.0-rc.0",
+    "xo": "0.44.0"
   }
 }

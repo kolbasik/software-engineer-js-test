@@ -5,66 +5,71 @@
 
 // grab DOM elements inside index.html
 
-var fileSelector = document.getElementById( "fileSelector" );
-var imageContainer = document.getElementById( "imageContainer" );
-var debugContainer = document.getElementById( "debugContainer" );
-var generateButton = document.getElementById( "generateButton" );
+const fileSelector = document.querySelector('#fileSelector');
+const imageContainer = document.querySelector('#imageContainer');
+const debugContainer = document.querySelector('#debugContainer');
+const generateButton = document.querySelector('#generateButton');
 
-// some functions to get you started !!
+// Some functions to get you started !!
 
-function log( msg ) {
-    // show debug/state message on screen
-    debugContainer.innerHTML += "<p>" + msg + "</p>";
+function log(message) {
+	// Show debug/state message on screen
+	debugContainer.innerHTML += '<p>' + message + '</p>';
 }
 
-fileSelector.onchange = function( e ) {
-    // get all selected Files
-    var files = e.target.files;
-    var file;
-    for ( var i = 0; i < files.length; ++i ) {
-        file = files[ i ];
-        // check if file is valid Image (just a MIME check)
-        switch ( file.type ) {
-            case "image/jpeg":
-            case "image/png":
-            case "image/gif":
-                // read Image contents from file
-                var reader = new FileReader();
-                reader.onload = function( e ) {
-                    // create HTMLImageElement holding image data
-                    var img = new Image();
-                    img.src = reader.result;
+fileSelector.addEventListener('change', (e) => {
+	// Get all selected Files
+	const files = e.target.files;
+	let file;
+	for (const file_ of files) {
+		file = file_;
+		// Check if file is valid Image (just a MIME check)
+		switch (file.type) {
+			case 'image/jpeg':
+			case 'image/png':
+			case 'image/gif':
+				// Read Image contents from file
+				var reader = new FileReader();
+				reader.addEventListener('load', (e) => {
+					// Create HTMLImageElement holding image data
+					const img = new Image();
+					img.src = reader.result;
 
-                    // remove existing images from ImageContainer
-                    while ( imageContainer.childNodes.length > 0 )
-                        imageContainer.removeChild( imageContainer.childNodes[ 0 ]);
+					// Remove existing images from ImageContainer
+					while (imageContainer.childNodes.length > 0)
+						imageContainer.childNodes[0].remove();
 
-                    // add image to container
-                    imageContainer.appendChild( img );
+					// Add image to container
+					imageContainer.append(img);
 
-                    img.onload = function() {
-                        // grab some data from the image
-                        var imageData = {
-                            "width": img.naturalWidth,
-                            "height": img.naturalHeight
-                        };
-                        log( "Loaded Image w/dimensions " + imageData.width + " x " + imageData.height );
-                    }
-                    // do your magic here...
-                };
-                reader.readAsDataURL( file );
-                // process just one file.
-                return;
+					img.addEventListener('load', () => {
+						// Grab some data from the image
+						const imageData = {
+							width: img.naturalWidth,
+							height: img.naturalHeight,
+						};
+						log(
+							'Loaded Image w/dimensions ' +
+								imageData.width +
+								' x ' +
+								imageData.height,
+						);
+					});
+					// Do your magic here...
+				});
 
+				reader.readAsDataURL(file);
+				// Process just one file.
+				return;
 
-            default:
-                log( "not a valid Image file :" + file.name );
-        }
-    }
-};
+			default:
+				log('not a valid Image file :' + file.name);
+		}
+	}
+});
 
-generateButton.onclick = function( e ) {
-    log( "GENERATE BUTTON CLICKED!! Should this do something else?" );
-};
+generateButton.addEventListener('click', (e) => {
+	log('GENERATE BUTTON CLICKED!! Should this do something else?');
+});
 
-log( "Test application ready" );
+log('Test application ready');
