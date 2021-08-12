@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhotoEditor addProjects should be handled 1`] = `
+Object {
+  "activeProjectId": "TEST",
+  "projects": Array [
+    Object {
+      "canvas": Object {
+        "height": 10,
+        "width": 5,
+      },
+      "id": "TEST",
+      "image": Object {
+        "height": 100,
+        "src": "none",
+        "width": 50,
+      },
+      "matrix": Object {
+        "a": 1,
+        "b": 0,
+        "c": 0,
+        "d": 1,
+        "e": 0,
+        "f": 0,
+      },
+    },
+    Object {
+      "canvas": Object {
+        "height": 10,
+        "width": 5,
+      },
+      "id": "TEST2",
+      "image": Object {
+        "height": 100,
+        "src": "none",
+        "width": 50,
+      },
+      "matrix": Object {
+        "a": 1,
+        "b": 0,
+        "c": 0,
+        "d": 1,
+        "e": 0,
+        "f": 0,
+      },
+    },
+  ],
+}
+`;
+
+exports[`PhotoEditor deleteProject should be handled 1`] = `
+Object {
+  "activeProjectId": undefined,
+  "projects": Array [],
+}
+`;
+
+exports[`PhotoEditor setActiveProject should be handled 1`] = `
+Object {
+  "activeProjectId": "TEST",
+  "projects": Array [
+    Object {
+      "canvas": Object {
+        "height": 10,
+        "width": 5,
+      },
+      "id": "TEST",
+      "image": Object {
+        "height": 100,
+        "src": "none",
+        "width": 50,
+      },
+      "matrix": Object {
+        "a": 1,
+        "b": 0,
+        "c": 0,
+        "d": 1,
+        "e": 0,
+        "f": 0,
+      },
+    },
+  ],
+}
+`;
+
+exports[`PhotoEditor updateProject should be handled 1`] = `
+Object {
+  "activeProjectId": undefined,
+  "projects": Array [
+    Object {
+      "canvas": Object {
+        "height": 10,
+        "width": 5,
+      },
+      "id": "TEST",
+      "image": Object {
+        "height": 100,
+        "src": "none",
+        "width": 50,
+      },
+      "matrix": Object {
+        "a": 1,
+        "b": 0,
+        "c": 0,
+        "d": 1,
+        "e": 0,
+        "f": 0,
+      },
+    },
+  ],
+}
+`;
