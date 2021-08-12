@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "ci": "yarn lint && yarn test && yarn build",
     "start": "npx parcel serve app/index.html",
     "build": "npx parcel build app/index.html",
     "test": "jest --runInBand",
