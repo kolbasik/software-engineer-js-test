@@ -1,0 +1,25 @@
+body {
+  font-family: Helvetica, Verdana, sans-serif;
+  line-height: 1.5em;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header > * {
+  margin: 5px;
+}
+
+aside {
+  float: left;
+  width: 250px;
+}
+
+main {
+  margin-left: 265px;
+}
+
+.project img { width: 100%; }
